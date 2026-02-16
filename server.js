@@ -25,7 +25,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: { 
-    secure: true,
+    secure: false,  // ← เปลี่ยนจาก true เป็น false (สำหรับ localhost)
     sameSite: 'lax',
     httpOnly: true,
     maxAge: 24 * 60 * 60 * 1000 
@@ -77,7 +77,7 @@ const initDatabase = () => {
       // Insert Thai parties
       const parties = [
         'ภูมิใจไทย (Bhumjaithai Party)',
-        'ประชาชน (People’s Party)',
+        'ประชาชน (People\'s Party)',
         'เพื่อไทย (Pheu Thai Party)',
         'กล้าทำ (Kla Tham Party)',
         'ประชาธิปัตย์ (Democrat Party)',

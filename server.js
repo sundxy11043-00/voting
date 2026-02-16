@@ -8,6 +8,9 @@ const http = require('http');
 const socketIo = require('socket.io');
 
 const app = express();
+
+app.set('trust proxy', 1);
+
 const server = http.createServer(app);
 const io = socketIo(server);
 
@@ -23,6 +26,7 @@ app.use(session({
   saveUninitialized: false,
   cookie: { 
     secure: false,
+    sameSite: 'none',
     httpOnly: true,
     maxAge: 24 * 60 * 60 * 1000 
   }

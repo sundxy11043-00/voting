@@ -76,16 +76,16 @@ const initDatabase = () => {
     `, () => {
       // Insert Thai parties
       const parties = [
-        'เพื่อไทย (Pheu Thai)',
-        'ก้าวไกล (Move Forward)',
-        'พืชศรุษ (Bhumjaithai)',
-        'ประชาธิปไตย (Democrat)',
-        'ชาติไทย (Thai Nation)',
-        'คนไทยสร้างไทย (Thai Build Thailand)',
-        'สยาม (Siam)',
-        'พลังประชารัฐ (Popular Force)',
-        'ประชาชนใจสุไทย (Thai People)',
-        'อนาคตไทย (Future Thailand)'
+        'ภูมิใจไทย (Bhumjaithai Party)',
+        'ประชาชน (People’s Party)',
+        'เพื่อไทย (Pheu Thai Party)',
+        'กล้าทำ (Kla Tham Party)',
+        'ประชาธิปัตย์ (Democrat Party)',
+        'ไทยร่วมพลัง (Thai United Power Party)',
+        'ประชาชาติ (Prachachart Party)',
+        'พลังประชารัฐ (Palang Pracharath Party)',
+        'เสรีรวมไทย (Seri Ruam Thai Party)',
+        'พรรคเศรษฐกิจ (Economic Party)'
       ];
 
       parties.forEach(party => {

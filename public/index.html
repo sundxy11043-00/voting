@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบการเลือกตั้งออนไลน์ - ประเทศไทย 2569</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Login/Register Page -->
+    <div id="authPage" class="page active">
+      <div class="auth-container">
+        <h1>🗳️ ระบบการเลือกตั้งออนไลน์ 2569</h1>
+        
+        <div class="tab-buttons">
+          <button class="tab-btn active" onclick="switchTab('login')">เข้าสู่ระบบ</button>
+          <button class="tab-btn" onclick="switchTab('register')">สมัครสมาชิก</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginTab" class="tab-content active">
+          <form onsubmit="handleLogin(event)">
+            <div class="form-group">
+              <label for="loginCitizenId">เลขประจำตัว (5 หลัก):</label>
+              <input type="text" id="loginCitizenId" maxlength="5" pattern="[0-9]{5}" placeholder="00000" required>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">รหัสผ่าน:</label>
+              <input type="password" id="loginPassword" required>
+            </div>
+            <button type="submit" class="btn-submit">เข้าสู่ระบบ</button>
+            <div id="loginError" class="error-message"></div>
+          </form>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerTab" class="tab-content">
+          <form onsubmit="handleRegister(event)">
+            <div class="form-group">
+              <label for="regCitizenId">เลขประจำตัว (5 หลัก):</label>
+              <input type="text" id="regCitizenId" maxlength="5" pattern="[0-9]{5}" placeholder="00000" required>
+              <small>กรุณาใส่ตัวเลข 5 หลัก</small>
+            </div>
+            <div class="form-group">
+              <label for="regPassword">สร้างรหัสผ่าน:</label>
+              <input type="password" id="regPassword" required minlength="6">
+              <small>รหัสผ่านต้องมีความยาวอย่างน้อย 6 ตัวอักษร</small>
+            </div>
+            <button type="submit" class="btn-submit">สมัครสมาชิก</button>
+            <div id="registerError" class="error-message"></div>
+            <div id="registerSuccess" class="success-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voting Page -->
+    <div id="votingPage" class="page">
+      <div class="voting-container">
+        <div class="citizen-id-box">
+          <p>เลขประจำตัวของคุณ:</p>
+          <h2 id="displayCitizenId">-----</h2>
+        </div>
+
+        <h1>เลือกพรรคการเมืองที่คุณต้องการสนับสนุน</h1>
+        
+        <div id="partiesContainer" class="parties-grid">
+          <!-- Parties will be loaded here -->
+        </div>
+
+        <button class="btn-logout" onclick="handleLogout()">ออกจากระบบ</button>
+      </div>
+    </div>
+
+    <!-- Results Page -->
+    <div id="resultsPage" class="page">
+      <div class="results-container">
+        <h1>📊 ผลการลงคะแนนแบบสดใจ 2569</h1>
+        
+        <div id="resultsChart" class="results-chart">
+          <!-- Results will be loaded here -->
+        </div>
+
+        <button class="btn-logout" onclick="handleLogout()">ออกจากระบบ</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
